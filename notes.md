@@ -8,6 +8,9 @@ Flags: -h(shows hidden files), -nc (shows files with pain white text)
 Path: The absolute or relative path to the directory whose contents will be printed.
 
 ## ConsoleColor.java
+Purpose: Enum of ANSI escape codes for setting console text color (BLACK, RED, GREEN, YELLOW, BLUE, PURPLE, CYAN, WHITE).
+Usage: Put the color code before the text and RESET ("\033[0m") after it, or the color carries into all later output.
+Caveat: Works only in terminals that support ANSI codes
 
 
 ## ColorPrinter.java / ColorPrinterTest.java
