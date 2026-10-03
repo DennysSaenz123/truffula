@@ -101,10 +101,42 @@ public class TruffulaOptions  {
    * @throws FileNotFoundException if the directory cannot be found or if the path points to a file
    */
   public TruffulaOptions(String[] args) throws IllegalArgumentException, FileNotFoundException {
-    // TODO: Replace the below lines with your implementation
-    root = null;
-    showHidden = false;
-    useColor = false;
+    if (args == null || args.length == 0) {
+        throw new IllegalArgumentException("Missing directory path");
+    }
+
+    boolean hidden = false;
+    boolean color = true;
+
+    // Every argument except the last must be a flag
+    for (int i = 0; i < args.length - 1; i++) {
+        String arg = args[i];
+        if (arg.equals("-h")) {
+            hidden = true;
+        } else if (arg.equals("-nc")) {
+            color = false;
+        } else {
+            throw new IllegalArgumentException("Unknown argument: " + arg);
+        }
+    }
+
+    // Last argument is the path
+    String path = args[args.length - 1];
+    if (path.startsWith("-")) {
+        throw new IllegalArgumentException("Missing directory path");
+    }
+
+    File dir = new File(path);
+    if (!dir.exists()) {
+        throw new FileNotFoundException("Directory not found: " + path);
+    }
+    if (!dir.isDirectory()) {
+        throw new FileNotFoundException("Path is a file, not a directory: " + path);
+    }
+
+    root = dir;
+    showHidden = hidden;
+    useColor = color;
   }
 
   /**
