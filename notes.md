@@ -4,8 +4,11 @@ As part of Wave 0, please fill out notes for each of the below files. They are i
 PLEASE MAKE FREQUENT COMMITS AS YOU FILL OUT THIS FILE.
 
 ## App.java
+Flags: -h(shows hidden files), -nc (shows files with pain white text)
+Path: The absolute or relative path to the directory whose contents will be printed.
 
 ## ConsoleColor.java
+
 
 ## ColorPrinter.java / ColorPrinterTest.java
 
