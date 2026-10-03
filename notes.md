@@ -29,3 +29,6 @@ Fields: TruffulaOptions (hidden files, color, root), a color sequence (default: 
 Constructors: Four overloads that all lead to the full one. You only have to pass options; the output stream (defaults to System.out) and color sequence (defaults to the list above) are optional, which makes it easy to send output elsewhere for testing
 
 ## AlphabeticalFileSorter.java
+Purpose: Sorts a File[] alphabetically by name, ignoring case (so apple and Banana sort as you'd expect).
+How it works: Arrays.sort with a lambda comparator that calls compareToIgnoreCase on the file names. It sorts the original array in place and returns that same array.
+Note: It's a static utility (AlphabeticalFileSorter.sort(files)) and you don't need to edit it
