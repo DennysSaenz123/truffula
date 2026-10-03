@@ -19,7 +19,13 @@ How it works: Set a color with setCurrentColor() using the ConsoleColor enum, th
 Limitation: Colors only appear in terminals that support ANSI codes
 
 ## TruffulaOptions.java / TruffulaOptionsTest.java
+Purpose: Holds the settings for printing a directory tree: show hidden files, use color, and the root directory.
+Arguments: -h -nc path. -h shows hidden files (names starting with .), -nc turns off color (on by default). Flags can go in any order, and the path is required.
+Errors: IllegalArgumentException for unknown flags or a missing path; FileNotFoundException if the path doesn't exist or isn't a directory.
 
 ## TruffulaPrinter.java / TruffulaPrinterTest.java
+Purpose: Prints a directory tree, sorting files and folders case-insensitively and cycling through colors (likely one per depth level) to make it easier to read.
+Fields: TruffulaOptions (hidden files, color, root), a color sequence (default: WHITE → PURPLE → YELLOW), and a ColorPrinter for output.
+Constructors: Four overloads that all lead to the full one. You only have to pass options; the output stream (defaults to System.out) and color sequence (defaults to the list above) are optional, which makes it easy to send output elsewhere for testing
 
 ## AlphabeticalFileSorter.java
