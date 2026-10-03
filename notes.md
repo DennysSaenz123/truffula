@@ -10,10 +10,13 @@ Path: The absolute or relative path to the directory whose contents will be prin
 ## ConsoleColor.java
 Purpose: Enum of ANSI escape codes for setting console text color (BLACK, RED, GREEN, YELLOW, BLUE, PURPLE, CYAN, WHITE).
 Usage: Put the color code before the text and RESET ("\033[0m") after it, or the color carries into all later output.
-Caveat: Works only in terminals that support ANSI codes
+Limitation: Works only in terminals that support ANSI codes
 
 
 ## ColorPrinter.java / ColorPrinterTest.java
+Purpose: Prints colored text to any PrintStream using ANSI escape codes.
+How it works: Set a color with setCurrentColor() using the ConsoleColor enum, then print. The color either resets after each print or stays on, depending on the parameters.
+Limitation: Colors only appear in terminals that support ANSI codes
 
 ## TruffulaOptions.java / TruffulaOptionsTest.java
 
